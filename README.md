@@ -3,18 +3,18 @@
 a tool which applys Bailey–Borwein–Plouffe formula to geneate pi sequence for analysis... 
 
 ## Overview
-Is it fun? what is the inside story of this sequence?
+Is it fun? what is the inside story of this sequence? Wanna use D3 to see what is happening.
 <pre>
-    3.14159265358979323846264338327950288419716939937510582097494459230781640628620899862803482534211706
-    798214808651328230664709384460955058223172535940812848111745028410270193852110555964462294895493038196
-    442881097566593344612847564823378678316527120190914564856692346034861045432664821339360726024914127...
+ 3.141592653589793238462643383279502884197169399375105820974944592307816406286208
+ 99862803482534211706798214808651328230664709384460955058223172535940812848111745
+ 02841027019385211055596446229489549303819644288109756659334461284756482337867...
 </pre>
 
 ## Build
  <pre> lein uberjar </pre>
 
 ## API
-- getStatAt("1000") will give status(in json) about the 3000th(3*1000) digit of pi, like the following: 
+- getStatAt("1000") will give us some view (my view) from 0th to the 3000th (3*1000) digit of pi, like the following: 
 
 <pre>
 [{"name":"0", "freq":{"f2":77, "f1":89, "f0":93}},
@@ -30,11 +30,22 @@ Is it fun? what is the inside story of this sequence?
 </pre>
 
 ## Docker
-TODO
+What will be the answer after 100 billion? Let's turn to the cloud ...
+
+###Build
+<pre>
+docker build -t zaza/pi .
+</pre>
+
+##Run
+<pre>
+docker run -t -i zaza/pi java -jar app-standalone.jar 100
+</pre>
+this will give us the dicimal place to 3 * 100.
 
 ## License
 
-Copyright © 2015 Zaza Deng
+Copyright © 2015 Zeyu Deng
 
 Distributed under the Eclipse Public License either version 1.0 or (at
 your option) any later version.
